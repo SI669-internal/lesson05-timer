@@ -2,13 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 class Timer extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       timeRemaining: -1,
       buttonText: "Start"
     }
+    this.timer = 0;
   }
 
   start = () => {
@@ -16,7 +17,8 @@ class Timer extends React.Component {
         timeRemaining: 10,
         buttonText: "Restart"
     }));
-    setTimeout(this.timerTick, 1000);
+    clearTimeout(this.timer);
+    this.timer = setTimeout(this.timerTick, 1000);
   }
 
   timerTick = () => {
