@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-class Timer extends React.Component {
+export default class App extends React.Component {
   constructor() {
     super();
 
@@ -45,30 +45,22 @@ class Timer extends React.Component {
 
   render() {
     return (
-      <View style={styles.timerContainer}>
-        <Text style={styles.timerTitle}>
-          10 Second Timer 
-        </Text>
-        <Text style={styles.timeLeft}>
-          { this.getDisplayText() }
-        </Text>
-        <TouchableOpacity
-          onPress = {this.start} 
-          style = {styles.b}>
-          <Text style = {styles.bText}>
-            {this.state.buttonText}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      );
-  }
-}
-
-export default class App extends React.Component {
-  render() {
-    return (
       <View style={styles.container}>
-        <Timer/>
+        <View style={styles.timerContainer}>
+          <Text style={styles.timerTitle}>
+            10 Second Timer 
+          </Text>
+          <Text style={styles.timeLeft}>
+            { this.getDisplayText() }
+          </Text>
+          <TouchableOpacity
+            onPress = {this.start} 
+            style = {styles.b}>
+            <Text style = {styles.bText}>
+              {this.state.buttonText}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
